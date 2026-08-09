@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img"
+public_folder: "img"
+
+locale: ru
+
+collections:
+  - name: "content"
+    label: "Контент сайта"
+    files:
+      - name: "main"
+        label: "Главная страница"
+        file: "content.json"
+        format: "json"
+        fields:
+          - label: "Главный экран"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Описание", name: "description", widget: "text"}
+              - {label: "Фото", name: "image", widget: "image"}
+              - {label: "Бейдж 1", name: "badge1", widget: "string"}
+              - {label: "Бейдж 2", name: "badge2", widget: "string"}
+          - label: "Блок «Почему мы»"
+            name: "advantages"
+            widget: "object"
+            fields:
+              - {label: "Фото", name: "image", widget: "image"}
+          - label: "Контакты"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - {label: "Телефон (отображение)", name: "phone", widget: "string"}
+              - {label: "Телефон (для ссылки)", name: "phone_raw", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Адрес", name: "address", widget: "string"}
+          - label: "Мастера"
+            name: "team"
+            widget: "list"
+            fields:
+              - {label: "Имя", name: "name", widget: "string"}
+              - {label: "Должность", name: "role", widget: "string"}
+              - {label: "Описание", name: "bio", widget: "text"}
+              - {label: "Фото", name: "photo", widget: "image"}
