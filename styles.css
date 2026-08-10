@@ -545,6 +545,11 @@ button {
     text-decoration: underline;
 }
 
+@media (max-width: 769px) {
+.problem-interactive{
+    grid-template-columns: none;
+}
+}
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero {
         min-height: auto;
