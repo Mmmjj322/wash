@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  
 
 media_folder: "img"
 public_folder: "img"
@@ -23,6 +24,7 @@ collections:
               - {label: "Логотип", name: "logo", widget: "string"}
               - {label: "Статус", name: "status", widget: "string"}
               - {label: "Кнопка в шапке", name: "cta", widget: "string"}
+
           - label: "Главный экран"
             name: "hero"
             widget: "object"
@@ -34,25 +36,29 @@ collections:
               - {label: "Бейдж 2", name: "badge2", widget: "string"}
               - {label: "Кнопка 1", name: "primaryCta", widget: "string"}
               - {label: "Кнопка 2", name: "secondaryCta", widget: "string"}
+
           - label: "Trust bar"
             name: "trustBar"
             widget: "object"
             fields:
-              - label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Подзаголовок", name: "subtitle", widget: "string"}]}
+              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Подзаголовок", name: "subtitle", widget: "string"}]}}
+
           - label: "Проблемы"
             name: "problem"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Подзаголовок", name: "subtitle", widget: "string"}
-              - label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Ключ", name: "key", widget: "string"}, {label: "Название", name: "label", widget: "string"}, {label: "Тег", name: "tag", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Срок", name: "time", widget: "string"}, {label: "Цена", name: "price", widget: "string"}, {label: "Текст кнопки", name: "cta", widget: "string"}]}
+              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Ключ", name: "key", widget: "string"}, {label: "Название", name: "label", widget: "string"}, {label: "Тег", name: "tag", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Срок", name: "time", widget: "string"}, {label: "Цена", name: "price", widget: "string"}, {label: "Текст кнопки", name: "cta", widget: "string"}]}}
+
           - label: "Услуги"
             name: "services"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Подзаголовок", name: "subtitle", widget: "string"}
-              - label: "Карточки", name: "items", widget: "list", field: {label: "Карточка", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Текст ссылки", name: "linkText", widget: "string"}]}
+              - {label: "Карточки", name: "items", widget: "list", field: {label: "Карточка", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Текст ссылки", name: "linkText", widget: "string"}]}}
+
           - label: "Блок «Почему мы»"
             name: "advantages"
             widget: "object"
@@ -60,27 +66,31 @@ collections:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Описание", name: "description", widget: "text"}
               - {label: "Фото", name: "image", widget: "image"}
-              - label: "Пункты", name: "list", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}
+              - {label: "Пункты", name: "list", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
               - {label: "Текст кнопки", name: "cta", widget: "string"}
+
           - label: "Как работаем"
             name: "process"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Подзаголовок", name: "subtitle", widget: "text"}
-              - label: "Шаги", name: "steps", widget: "list", field: {label: "Шаг", name: "step", widget: "object", fields: [{label: "Бейдж", name: "badge", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}
+              - {label: "Шаги", name: "steps", widget: "list", field: {label: "Шаг", name: "step", widget: "object", fields: [{label: "Бейдж", name: "badge", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}}
+
           - label: "Отзывы"
             name: "reviews"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
-              - label: "Отзывы", name: "items", widget: "list", field: {label: "Отзыв", name: "item", widget: "object", fields: [{label: "Текст", name: "quote", widget: "text"}, {label: "Имя", name: "name", widget: "string"}, {label: "Подпись", name: "meta", widget: "string"}]}
+              - {label: "Отзывы", name: "items", widget: "list", field: {label: "Отзыв", name: "item", widget: "object", fields: [{label: "Текст", name: "quote", widget: "text"}, {label: "Имя", name: "name", widget: "string"}, {label: "Подпись", name: "meta", widget: "string"}]}}
+
           - label: "Гарантии"
             name: "guarantees"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
-              - label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}
+              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}}
+
           - label: "Контакты"
             name: "contact"
             widget: "object"
@@ -98,13 +108,15 @@ collections:
               - {label: "Текст кнопки", name: "buttonText", widget: "string"}
               - {label: "Текст под кнопкой", name: "formNote", widget: "string"}
               - {label: "Текст urgency", name: "urgency", widget: "string"}
+
           - label: "FAQ"
             name: "faq"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
-              - label: "Вопросы", name: "items", widget: "list", field: {label: "Вопрос", name: "item", widget: "object", fields: [{label: "Вопрос", name: "question", widget: "string"}, {label: "Ответ", name: "answer", widget: "text"}]}
+              - {label: "Вопросы", name: "items", widget: "list", field: {label: "Вопрос", name: "item", widget: "object", fields: [{label: "Вопрос", name: "question", widget: "string"}, {label: "Ответ", name: "answer", widget: "text"}]}}
               - {label: "Текст кнопки", name: "cta", widget: "string"}
+
           - label: "Подвал"
             name: "footer"
             widget: "object"
@@ -114,13 +126,15 @@ collections:
               - {label: "Заголовок быстрых ссылок", name: "quickLinksTitle", widget: "string"}
               - {label: "Заголовок контактов", name: "contactsTitle", widget: "string"}
               - {label: "Копирайт", name: "copyright", widget: "string"}
+
           - label: "Мастера"
             name: "team"
             widget: "object"
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Описание", name: "description", widget: "text"}
-              - label: "Список", name: "items", widget: "list", field: {label: "Мастер", name: "item", widget: "object", fields: [{label: "Имя", name: "name", widget: "string"}, {label: "Должность", name: "role", widget: "string"}, {label: "Описание", name: "bio", widget: "text"}, {label: "Фото", name: "photo", widget: "image"}]}
+              - {label: "Список", name: "items", widget: "list", field: {label: "Мастер", name: "item", widget: "object", fields: [{label: "Имя", name: "name", widget: "string"}, {label: "Должность", name: "role", widget: "string"}, {label: "Описание", name: "bio", widget: "text"}, {label: "Фото", name: "photo", widget: "image"}]}}
+
           - label: "Попап"
             name: "popup"
             widget: "object"
@@ -129,6 +143,7 @@ collections:
               - {label: "Описание", name: "description", widget: "text"}
               - {label: "Текст кнопки", name: "buttonText", widget: "string"}
               - {label: "Текст ссылки", name: "fullFormLink", widget: "string"}
+
           - label: "Мобильная кнопка"
             name: "mobileCta"
             widget: "object"
