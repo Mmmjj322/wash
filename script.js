@@ -12,8 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (logo && data.header.logo) logo.textContent = data.header.logo;
                 if (status && data.header.status) status.textContent = data.header.status;
                 if (navCta && data.header.cta) navCta.textContent = data.header.cta;
+
                 if (navMenu && Array.isArray(data.header.navItems)) {
-                    navMenu.innerHTML = data.header.navItems.map(item => `<li><a href="${item.href}">${item.label}</a></li>`).join('') + `<li><a href="#" class="nav-cta open-popup">${data.header.cta || 'Вызвать мастера'}</a></li>`;
+                    const navLinks = navMenu.querySelectorAll('li a:not(.nav-cta)');
+                    data.header.navItems.forEach((item, index) => {
+                        const link = navLinks[index];
+                        if (!link) return;
+                        link.href = item.href || '#';
+                        link.textContent = item.label || link.textContent;
+                    });
                 }
             }
 
@@ -60,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const problemSubtitle = document.querySelector('.problem .section-header p');
                 const problemButtons = document.querySelectorAll('.problem-btn span');
                 const problemDisplay = document.getElementById('problemDisplay');
-                const problemItems = Array.isArray(data.problem.items) ? data.problem.items : [];
+                problemItems = Array.isArray(data.problem.items) ? data.problem.items : [];
                 if (problemTitle && data.problem.title) problemTitle.textContent = data.problem.title;
                 if (problemSubtitle && data.problem.subtitle) problemSubtitle.textContent = data.problem.subtitle;
                 problemButtons.forEach((btn, index) => {
