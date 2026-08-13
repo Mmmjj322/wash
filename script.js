@@ -36,10 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (heroTitle && data.hero.title) heroTitle.textContent = data.hero.title;
                 if (heroDesc && data.hero.description) heroDesc.textContent = data.hero.description;
-                if (heroImg && data.hero.image) {
-                    heroImg.src = data.hero.image;
-                    heroImg.alt = 'Мастер ремонтирует стиральную машину на дому';
-                }
                 if (badge1 && data.hero.badge1) badge1.textContent = data.hero.badge1;
                 if (badge2 && data.hero.badge2) badge2.textContent = data.hero.badge2;
                 if (heroPrimaryCta && data.hero.primaryCta) heroPrimaryCta.textContent = data.hero.primaryCta;
@@ -130,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const advCta = document.querySelector('#advantages .section-cta .btn');
                 if (advTitle && data.advantages.title) advTitle.textContent = data.advantages.title;
                 if (advDesc && data.advantages.description) advDesc.textContent = data.advantages.description;
-                if (advImg && data.advantages.image) advImg.src = data.advantages.image;
                 advList.forEach((item, index) => {
                     if (data.advantages.list?.[index]) item.textContent = data.advantages.list[index];
                 });
@@ -189,16 +184,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (teamTitle && data.team.title) teamTitle.textContent = data.team.title;
                 if (teamDesc && data.team.description) teamDesc.textContent = data.team.description;
                 if (teamGrid && Array.isArray(data.team.items)) {
-                    teamGrid.innerHTML = data.team.items.map(member => `
-                        <div class="team-member">
-                            <div class="team-photo">
-                                <img src="${member.photo}" alt="${member.name} — ${member.role}" loading="lazy" width="200" height="200">
-                            </div>
-                            <h3>${member.name}</h3>
-                            <p class="team-role">${member.role}</p>
-                            <p class="team-bio">${member.bio}</p>
-                        </div>
-                    `).join('');
+                    const members = teamGrid.querySelectorAll('.team-member');
+                    data.team.items.forEach((member, index) => {
+                        const card = members[index];
+                        if (!card) return;
+                        const name = card.querySelector('h3');
+                        const role = card.querySelector('.team-role');
+                        const bio = card.querySelector('.team-bio');
+                        if (name && member.name) name.textContent = member.name;
+                        if (role && member.role) role.textContent = member.role;
+                        if (bio && member.bio) bio.textContent = member.bio;
+                    });
                 }
             }
 
