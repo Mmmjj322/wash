@@ -21,21 +21,29 @@ collections:
             name: "header"
             widget: "object"
             fields:
-              - {label: "Логотип", name: "logo", widget: "string"}
-              - {label: "Статус", name: "status", widget: "string"}
-              - {label: "Кнопка в шапке", name: "cta", widget: "string"}
+              - {label: "Логотип", name: "logo", widget: "string", required: false}
+              - {label: "Статус", name: "status", widget: "string", required: false}
+              - {label: "Кнопка в шапке", name: "cta", widget: "string", required: false}
+              - label: "Навигация"
+                name: "navItems"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Текст", name: "label", widget: "string", required: false}
+                  - {label: "Ссылка", name: "href", widget: "string", required: false}
 
           - label: "Главный экран"
             name: "hero"
             widget: "object"
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Фото", name: "image", widget: "image"}
-              - {label: "Бейдж 1", name: "badge1", widget: "string"}
-              - {label: "Бейдж 2", name: "badge2", widget: "string"}
-              - {label: "Кнопка 1", name: "primaryCta", widget: "string"}
-              - {label: "Кнопка 2", name: "secondaryCta", widget: "string"}
+              - {label: "Заголовок", name: "title", widget: "string", required: false}
+              - {label: "Описание", name: "description", widget: "text", required: false}
+              - {label: "Фото", name: "image", widget: "image", required: false}
+              - {label: "Бейдж 1", name: "badge1", widget: "string", required: false}
+              - {label: "Бейдж 2", name: "badge2", widget: "string", required: false}
+              - {label: "Кнопка 1", name: "primaryCta", widget: "string", required: false}
+              - {label: "Кнопка 2", name: "secondaryCta", widget: "string", required: false}
+              - {label: "Индикаторы доверия", name: "trustIndicators", widget: "list", required: false, field: {label: "Текст", name: "item", widget: "string", required: false}}
 
           - label: "Trust bar"
             name: "trustBar"
