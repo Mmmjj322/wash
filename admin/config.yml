@@ -38,7 +38,6 @@ collections:
             fields:
               - {label: "Заголовок", name: "title", widget: "string", required: false}
               - {label: "Описание", name: "description", widget: "text", required: false}
-              - {label: "Фото", name: "image", widget: "image", required: false}
               - {label: "Бейдж 1", name: "badge1", widget: "string", required: false}
               - {label: "Бейдж 2", name: "badge2", widget: "string", required: false}
               - {label: "Кнопка 1", name: "primaryCta", widget: "string", required: false}
@@ -73,7 +72,6 @@ collections:
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Фото", name: "image", widget: "image"}
               - {label: "Пункты", name: "list", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
               - {label: "Текст кнопки", name: "cta", widget: "string"}
 
@@ -141,7 +139,7 @@ collections:
             fields:
               - {label: "Заголовок", name: "title", widget: "string"}
               - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Список", name: "items", widget: "list", field: {label: "Мастер", name: "item", widget: "object", fields: [{label: "Имя", name: "name", widget: "string"}, {label: "Должность", name: "role", widget: "string"}, {label: "Описание", name: "bio", widget: "text"}, {label: "Фото", name: "photo", widget: "image"}]}}
+              - {label: "Список", name: "items", widget: "list", field: {label: "Мастер", name: "item", widget: "object", fields: [{label: "Имя", name: "name", widget: "string"}, {label: "Должность", name: "role", widget: "string"}, {label: "Описание", name: "bio", widget: "text"}]} }
 
           - label: "Попап"
             name: "popup"
