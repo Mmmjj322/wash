@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  
 
 media_folder: "img"
 public_folder: "img"
@@ -16,142 +15,370 @@ collections:
         label: "Главная страница"
         file: "content.json"
         format: "json"
+
         fields:
+
+          # =========================
+          # ШАПКА
+          # =========================
+
           - label: "Шапка"
             name: "header"
             widget: "object"
+            required: false
             fields:
-              - {label: "Логотип", name: "logo", widget: "string", required: false}
-              - {label: "Статус", name: "status", widget: "string", required: false}
-              - {label: "Кнопка в шапке", name: "cta", widget: "string", required: false}
+              - { label: "Логотип", name: "logo", widget: "string", required: false }
+              - { label: "Статус", name: "status", widget: "string", required: false }
+              - { label: "Кнопка в шапке", name: "cta", widget: "string", required: false }
+
               - label: "Навигация"
                 name: "navItems"
                 widget: "list"
                 required: false
                 fields:
-                  - {label: "Текст", name: "label", widget: "string", required: false}
-                  - {label: "Ссылка", name: "href", widget: "string", required: false}
+                  - { label: "Текст", name: "label", widget: "string", required: false }
+                  - { label: "Ссылка", name: "href", widget: "string", required: false }
+
+
+          # =========================
+          # ГЛАВНЫЙ ЭКРАН
+          # =========================
 
           - label: "Главный экран"
             name: "hero"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string", required: false}
-              - {label: "Описание", name: "description", widget: "text", required: false}
-              - {label: "Бейдж 1", name: "badge1", widget: "string", required: false}
-              - {label: "Бейдж 2", name: "badge2", widget: "string", required: false}
-              - {label: "Кнопка 1", name: "primaryCta", widget: "string", required: false}
-              - {label: "Кнопка 2", name: "secondaryCta", widget: "string", required: false}
-              - {label: "Индикаторы доверия", name: "trustIndicators", widget: "list", required: false, field: {label: "Текст", name: "item", widget: "string", required: false}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+              - { label: "Изображение", name: "image", widget: "image", required: false }
+              - { label: "Бейдж 1", name: "badge1", widget: "string", required: false }
+              - { label: "Бейдж 2", name: "badge2", widget: "string", required: false }
+              - { label: "Кнопка 1", name: "primaryCta", widget: "string", required: false }
+              - { label: "Кнопка 2", name: "secondaryCta", widget: "string", required: false }
+
+              - label: "Индикаторы доверия"
+                name: "trustIndicators"
+                widget: "list"
+                required: false
+                field:
+                  label: "Текст"
+                  name: "item"
+                  widget: "string"
+                  required: false
+
+
+          # =========================
+          # TRUST BAR
+          # =========================
 
           - label: "Trust bar"
             name: "trustBar"
             widget: "object"
+            required: false
             fields:
-              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Подзаголовок", name: "subtitle", widget: "string"}]}}
+              - label: "Пункты"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Пункт"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Заголовок", name: "title", widget: "string", required: false }
+                    - { label: "Подзаголовок", name: "subtitle", widget: "string", required: false }
+
+
+          # =========================
+          # ПРОБЛЕМЫ
+          # =========================
 
           - label: "Проблемы"
             name: "problem"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Подзаголовок", name: "subtitle", widget: "string"}
-              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Ключ", name: "key", widget: "string"}, {label: "Название", name: "label", widget: "string"}, {label: "Тег", name: "tag", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Срок", name: "time", widget: "string"}, {label: "Цена", name: "price", widget: "string"}, {label: "Текст кнопки", name: "cta", widget: "string"}]}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Подзаголовок", name: "subtitle", widget: "string", required: false }
+              - { label: "Проблема по умолчанию", name: "defaultKey", widget: "string", required: false }
+
+              - label: "Пункты"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Пункт"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Ключ", name: "key", widget: "string", required: false }
+                    - { label: "Название кнопки", name: "label", widget: "string", required: false }
+                    - { label: "Тег", name: "tag", widget: "string", required: false }
+                    - { label: "Заголовок", name: "title", widget: "string", required: false }
+                    - { label: "Описание", name: "description", widget: "text", required: false }
+                    - { label: "Срок", name: "time", widget: "string", required: false }
+                    - { label: "Цена", name: "price", widget: "string", required: false }
+                    - { label: "Текст кнопки", name: "cta", widget: "string", required: false }
+
+
+          # =========================
+          # УСЛУГИ
+          # =========================
 
           - label: "Услуги"
             name: "services"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Подзаголовок", name: "subtitle", widget: "string"}
-              - {label: "Карточки", name: "items", widget: "list", field: {label: "Карточка", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}, {label: "Текст ссылки", name: "linkText", widget: "string"}]}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Подзаголовок", name: "subtitle", widget: "string", required: false }
+
+              - label: "Карточки"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Карточка"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Заголовок", name: "title", widget: "string", required: false }
+                    - { label: "Описание", name: "description", widget: "text", required: false }
+                    - { label: "Текст ссылки", name: "linkText", widget: "string", required: false }
+
+
+          # =========================
+          # ПОЧЕМУ МЫ
+          # =========================
 
           - label: "Блок «Почему мы»"
             name: "advantages"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Пункты", name: "list", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
-              - {label: "Текст кнопки", name: "cta", widget: "string"}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+              - { label: "Изображение", name: "image", widget: "image", required: false }
+
+              - label: "Пункты"
+                name: "list"
+                widget: "list"
+                required: false
+                field:
+                  label: "Пункт"
+                  name: "item"
+                  widget: "string"
+                  required: false
+
+              - { label: "Текст кнопки", name: "cta", widget: "string", required: false }
+
+
+          # =========================
+          # КАК РАБОТАЕМ
+          # =========================
 
           - label: "Как работаем"
             name: "process"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Подзаголовок", name: "subtitle", widget: "text"}
-              - {label: "Шаги", name: "steps", widget: "list", field: {label: "Шаг", name: "step", widget: "object", fields: [{label: "Бейдж", name: "badge", widget: "string"}, {label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Подзаголовок", name: "subtitle", widget: "text", required: false }
+
+              - label: "Шаги"
+                name: "steps"
+                widget: "list"
+                required: false
+                field:
+                  label: "Шаг"
+                  name: "step"
+                  widget: "object"
+                  fields:
+                    - { label: "Бейдж", name: "badge", widget: "string", required: false }
+                    - { label: "Заголовок", name: "title", widget: "string", required: false }
+                    - { label: "Описание", name: "description", widget: "text", required: false }
+
+
+          # =========================
+          # ОТЗЫВЫ
+          # =========================
 
           - label: "Отзывы"
             name: "reviews"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Отзывы", name: "items", widget: "list", field: {label: "Отзыв", name: "item", widget: "object", fields: [{label: "Текст", name: "quote", widget: "text"}, {label: "Имя", name: "name", widget: "string"}, {label: "Подпись", name: "meta", widget: "string"}]}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+
+              - label: "Отзывы"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Отзыв"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Текст", name: "quote", widget: "text", required: false }
+                    - { label: "Имя", name: "name", widget: "string", required: false }
+                    - { label: "Подпись", name: "meta", widget: "string", required: false }
+
+
+          # =========================
+          # ГАРАНТИИ
+          # =========================
 
           - label: "Гарантии"
             name: "guarantees"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Пункты", name: "items", widget: "list", field: {label: "Пункт", name: "item", widget: "object", fields: [{label: "Заголовок", name: "title", widget: "string"}, {label: "Описание", name: "description", widget: "text"}]}}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+
+              - label: "Пункты"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Пункт"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Заголовок", name: "title", widget: "string", required: false }
+                    - { label: "Описание", name: "description", widget: "text", required: false }
+
+
+          # =========================
+          # КОНТАКТЫ
+          # =========================
 
           - label: "Контакты"
             name: "contact"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Телефон (отображение)", name: "phone", widget: "string"}
-              - {label: "Телефон (для ссылки)", name: "phone_raw", widget: "string"}
-              - {label: "Email", name: "email", widget: "string"}
-              - {label: "Часы работы", name: "hours", widget: "string"}
-              - {label: "Заголовок зоны обслуживания", name: "serviceAreaTitle", widget: "string"}
-              - {label: "Текст зоны обслуживания", name: "serviceAreaText", widget: "string"}
-              - {label: "Заголовок формы", name: "formTitle", widget: "string"}
-              - {label: "Подзаголовок формы", name: "formSubtitle", widget: "string"}
-              - {label: "Текст кнопки", name: "buttonText", widget: "string"}
-              - {label: "Текст под кнопкой", name: "formNote", widget: "string"}
-              - {label: "Текст urgency", name: "urgency", widget: "string"}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+              - { label: "Телефон (отображение)", name: "phone", widget: "string", required: false }
+              - { label: "Телефон (для ссылки)", name: "phone_raw", widget: "string", required: false }
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Часы работы", name: "hours", widget: "string", required: false }
+              - { label: "Заголовок зоны обслуживания", name: "serviceAreaTitle", widget: "string", required: false }
+              - { label: "Текст зоны обслуживания", name: "serviceAreaText", widget: "string", required: false }
+              - { label: "Заголовок формы", name: "formTitle", widget: "string", required: false }
+              - { label: "Подзаголовок формы", name: "formSubtitle", widget: "string", required: false }
+              - { label: "Текст кнопки", name: "buttonText", widget: "string", required: false }
+              - { label: "Текст под кнопкой", name: "formNote", widget: "string", required: false }
+              - { label: "Текст urgency", name: "urgency", widget: "string", required: false }
+              - { label: "Примечание к телефону", name: "contactNotePhone", widget: "string", required: false }
+              - { label: "Примечание к email", name: "contactNoteEmail", widget: "string", required: false }
+              - { label: "Примечание к часам", name: "contactNoteHours", widget: "string", required: false }
+
+
+          # =========================
+          # FAQ
+          # =========================
 
           - label: "FAQ"
             name: "faq"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Вопросы", name: "items", widget: "list", field: {label: "Вопрос", name: "item", widget: "object", fields: [{label: "Вопрос", name: "question", widget: "string"}, {label: "Ответ", name: "answer", widget: "text"}]}}
-              - {label: "Текст кнопки", name: "cta", widget: "string"}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+
+              - label: "Вопросы"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Вопрос"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Вопрос", name: "question", widget: "string", required: false }
+                    - { label: "Ответ", name: "answer", widget: "text", required: false }
+
+              - { label: "Текст кнопки", name: "cta", widget: "string", required: false }
+
+
+          # =========================
+          # ПОДВАЛ
+          # =========================
 
           - label: "Подвал"
             name: "footer"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Заголовок быстрых ссылок", name: "quickLinksTitle", widget: "string"}
-              - {label: "Заголовок контактов", name: "contactsTitle", widget: "string"}
-              - {label: "Копирайт", name: "copyright", widget: "string"}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+              - { label: "Заголовок быстрых ссылок", name: "quickLinksTitle", widget: "string", required: false }
+              - { label: "Заголовок контактов", name: "contactsTitle", widget: "string", required: false }
+              - { label: "Копирайт", name: "copyright", widget: "string", required: false }
+
+              - label: "Юридические ссылки"
+                name: "legal"
+                widget: "list"
+                required: false
+                field:
+                  label: "Ссылка"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Текст", name: "label", widget: "string", required: false }
+                    - { label: "Ссылка", name: "href", widget: "string", required: false }
+
+
+          # =========================
+          # МАСТЕРА
+          # =========================
 
           - label: "Мастера"
             name: "team"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Список", name: "items", widget: "list", field: {label: "Мастер", name: "item", widget: "object", fields: [{label: "Имя", name: "name", widget: "string"}, {label: "Должность", name: "role", widget: "string"}, {label: "Описание", name: "bio", widget: "text"}]} }
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+
+              - label: "Список"
+                name: "items"
+                widget: "list"
+                required: false
+                field:
+                  label: "Мастер"
+                  name: "item"
+                  widget: "object"
+                  fields:
+                    - { label: "Имя", name: "name", widget: "string", required: false }
+                    - { label: "Должность", name: "role", widget: "string", required: false }
+                    - { label: "Описание", name: "bio", widget: "text", required: false }
+                    - { label: "Фото", name: "photo", widget: "image", required: false }
+
+
+          # =========================
+          # ПОПАП
+          # =========================
 
           - label: "Попап"
             name: "popup"
             widget: "object"
+            required: false
             fields:
-              - {label: "Заголовок", name: "title", widget: "string"}
-              - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Текст кнопки", name: "buttonText", widget: "string"}
-              - {label: "Текст ссылки", name: "fullFormLink", widget: "string"}
+              - { label: "Заголовок", name: "title", widget: "string", required: false }
+              - { label: "Описание", name: "description", widget: "text", required: false }
+              - { label: "Текст кнопки", name: "buttonText", widget: "string", required: false }
+              - { label: "Текст ссылки", name: "fullFormLink", widget: "string", required: false }
+
+
+          # =========================
+          # МОБИЛЬНАЯ КНОПКА
+          # =========================
 
           - label: "Мобильная кнопка"
             name: "mobileCta"
             widget: "object"
+            required: false
             fields:
-              - {label: "Текст кнопки", name: "text", widget: "string"}
+              - { label: "Текст кнопки", name: "text", widget: "string", required: false }
