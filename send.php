@@ -100,7 +100,7 @@ if ($error) {
 
 $result = json_decode($response, true);
 
-if (!$result  !$result['ok']) {
+if (!$result || !$result['ok']) {
     http_response_code(500);
 
     echo json_encode([
