@@ -334,18 +334,55 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', openPopup);
     });
 
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+ forms.forEach(form => {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        if (!submitButton) return;
+
+        const originalText = submitButton.textContent;
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Отправляем...';
+
+        try {
+            const formData = new FormData(form);
+
+            const response = await fetch('send-form.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || 'Не удалось отправить заявку');
+            }
+
             if (form.classList.contains('popup-form')) {
-                alert('Спасибо за заявку! Мы перезвоним вам в течение 15 минут.');
                 popupModal.classList.remove('active');
+                alert('Спасибо за заявку! Мы перезвоним вам в течение 15 минут.');
             } else {
                 alert('Спасибо за заявку! Мы свяжемся с вами в течение 15 минут.');
             }
+
             form.reset();
-        });
+
+        } catch (error) {
+            console.error('Ошибка отправки формы:', error);
+
+            alert(
+                'Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз или позвоните нам.'
+            );
+
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+        }
     });
+});
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
