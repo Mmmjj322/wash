@@ -1854,6 +1854,13 @@ button {
 
     .trust-bar-items {
         justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .trust-bar-item{
+        flex-direction: column;
+        text-align: center;
     }
 
     .footer-content {
